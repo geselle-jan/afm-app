@@ -8,5 +8,13 @@
         Onsen UI Team
     </author>
     <content src="index.html" />
+
+    <gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.3" />
+
+    <feature name="BackgroundAudio">
+        <param name="ios-package" value="BackgroundAudio" />
+        <param name="onload" value="true" />
+    </feature>
+
     <access origin="*" />
 </widget>
