@@ -16,6 +16,14 @@ module.exports = [
             "cordova.plugins.backgroundMode",
             "plugin.backgroundMode"
         ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugin.statusbar/www/statusbar.js",
+        "id": "com.phonegap.plugin.statusbar.statusbar",
+        "pluginId": "com.phonegap.plugin.statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -23,7 +31,8 @@ module.exports.metadata =
 {
     "nl.x-services.plugins.backgroundaudio": "1.0.0",
     "cordova-plugin-device": "1.1.1",
-    "de.appplant.cordova.plugin.background-mode": "0.6.4"
+    "de.appplant.cordova.plugin.background-mode": "0.6.4",
+    "com.phonegap.plugin.statusbar": "1.1.0"
 }
 // BOTTOM OF METADATA
 });

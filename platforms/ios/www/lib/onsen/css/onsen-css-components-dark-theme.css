@@ -207,7 +207,7 @@ h6 {
   transition-timing-function: cubic-bezier(0.5, 1.6, 0.5, 1);
 }
 .switch__input:checked + .switch__toggle {
-  background-color: #3385ff;
+  background-color: #bfad26;
 }
 .switch__input:checked + .switch__toggle:before {
   -webkit-transform: translateX(18px);
@@ -1645,14 +1645,14 @@ h6 {
   color: #bdbdbd;
 }
 :checked + .tab-bar__button {
-  color: #549eff;
+  color: #f9dc00;
   background-color: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-top: none;
 }
 :checked + .tab-bar__button > .tab-bar__icon {
-  color: #549eff;
+  color: #f9dc00;
 }
 .tab-bar__button:disabled {
   opacity: 0.3;
@@ -1811,7 +1811,7 @@ h6 {
 }
 :checked + .tab-bar--top-border__button {
   background-color: transparent;
-  border-bottom: 4px solid #549eff;
+  border-bottom: 4px solid #f9dc00;
 }
 /* topdoc
   name: Notification
@@ -1856,7 +1856,7 @@ h6 {
   height: 19px;
   -webkit-border-radius: 19px;
   border-radius: 19px;
-  background-color: #3385ff;
+  background-color: #bfad26;
   color: #fff;
   text-align: center;
   font-size: 16px;

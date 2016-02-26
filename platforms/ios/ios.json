@@ -19,6 +19,18 @@
                         {
                             "xml": "<feature name=\"BackgroundMode\"><param name=\"ios-package\" value=\"APPBackgroundMode\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" onload=\"true\" value=\"CDVStatusBar\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarBackgroundColor\" value=\"#000000\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -45,6 +57,9 @@
         },
         "de.appplant.cordova.plugin.background-mode": {
             "PACKAGE_NAME": "io.onsen.helloworld"
+        },
+        "com.phonegap.plugin.statusbar": {
+            "PACKAGE_NAME": "com.loafer-project.afm"
         }
     },
     "dependent_plugins": {},
@@ -65,11 +80,20 @@
                 "cordova.plugins.backgroundMode",
                 "plugin.backgroundMode"
             ]
+        },
+        {
+            "file": "plugins/com.phonegap.plugin.statusbar/www/statusbar.js",
+            "id": "com.phonegap.plugin.statusbar.statusbar",
+            "pluginId": "com.phonegap.plugin.statusbar",
+            "clobbers": [
+                "window.StatusBar"
+            ]
         }
     ],
     "plugin_metadata": {
         "nl.x-services.plugins.backgroundaudio": "1.0.0",
         "cordova-plugin-device": "1.1.1",
-        "de.appplant.cordova.plugin.background-mode": "0.6.4"
+        "de.appplant.cordova.plugin.background-mode": "0.6.4",
+        "com.phonegap.plugin.statusbar": "1.1.0"
     }
 }

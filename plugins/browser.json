@@ -12,6 +12,9 @@
         },
         "de.appplant.cordova.plugin.background-mode": {
             "PACKAGE_NAME": "io.onsen.helloworld"
+        },
+        "com.phonegap.plugin.statusbar": {
+            "PACKAGE_NAME": "com.loafer-project.afm"
         }
     },
     "dependent_plugins": {

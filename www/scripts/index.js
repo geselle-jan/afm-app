@@ -24,9 +24,13 @@
 
 angular.module('app', ['onsen']);
 
-angular.module('app').controller('AppController', function ($scope) {
+angular.module('app').controller('AppController', function ($scope, $http) {
 
     $scope.playing = false;
+
+    $scope.fbFeed = [];
+
+    $scope.currentlyPlaying = '';
 
     try {
         $scope.stream = new Audio('http://mp3.ffh.de/radioffh/livestream.aac');
@@ -34,6 +38,39 @@ angular.module('app').controller('AppController', function ($scope) {
     } catch (e) {
         ons.notification.alert({ message: 'no audio support!' });
     }
+
+    // metadata start
+
+
+    $http.get('http://np.radioplayer.de/qp/v3/onair?rpIds=1').then(function(resp) {
+        console.log('Metadata Success', resp.data);
+        var matches = resp.data.match(/callback\((.+)\)/);
+        var data = JSON.parse(matches[1]);
+        console.log(data);
+        var currentlyPlaying = '';
+        if (data.results[1] && data.results[1][0].artistName) {
+            currentlyPlaying += data.results[1][0].artistName;
+
+            if (data.results[1] && data.results[1][0].name) {
+                currentlyPlaying += ' - ' + data.results[1][0].name;
+            }
+        } else if (data.results[1] && data.results[1][1].artistName) {
+            currentlyPlaying += data.results[1][1].artistName;
+
+            if (data.results[1] && data.results[1][1].name) {
+                currentlyPlaying += ' - ' + data.results[1][1].name;
+            }
+        } else {
+            currentlyPlaying = 'HIT RADIO FFH'
+        }
+        $scope.currentlyPlaying = currentlyPlaying;
+    }, function(err) {
+        console.error('Metadata Error', err);
+    });
+
+
+    // metadata end
+
 
     $scope.doSomething = function () {
         ons.notification.alert({ message: 'tapped' });
@@ -58,4 +95,11 @@ angular.module('app').controller('AppController', function ($scope) {
         }
 
     };
+
+    $http.get('https://graph.facebook.com/416174165248113/posts?access_token=443609082513315|f9879cb19ccc7c16fdc419a62829db05').then(function(resp) {
+        console.log('FB Success', resp.data);
+        $scope.fbFeed = resp.data.data;
+    }, function(err) {
+        console.error('FB Error', err);
+    });
 });
